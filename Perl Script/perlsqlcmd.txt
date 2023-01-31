@@ -1,0 +1,49 @@
+[root@silver-node4 perl-program]# sqlite3 mydb.db
+SQLite version 3.7.17 2013-05-20 00:56:22
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+
+sqlite> create table employee(
+   ...> id int,
+   ...> name text,
+   ...> sal int);
+sqlite> insert into employee values(10,"rajann",66666);
+sqlite> insert into employee values(11,"revati",77777);
+sqlite> insert into employee values(12,"kumar",88888);
+sqlite> selet * from employee
+   ...> select * from employee;
+Error: near "selet": syntax error
+sqlite> select * from employee
+   ...> ;
+10|rajann|66666
+11|revati|77777
+12|kumar|88888
+sqlite> update employee
+   ...> set id=13,sal=99999
+   ...> ;
+sqlite> update employee
+   ...> set id=10,sal=22122
+   ...> where name='rajann';
+sqlite> update employee
+   ...> set name="kumar2",sal=12121
+   ...> where id=11;                                       other method ----:: update employee set name="cbk",sal=55555 where id=11; ::-----
+sqlite> select * from employee
+   ...> ;
+10|rajann|22122
+15|revati|12121
+13|kumar|99999
+sqlite> delete from employee
+   ...> where id=12;
+sqlite> select * from employee
+   ...> ;
+10|rajann|22122
+15|revati|12121
+13|kumar|99999
+sqlite> delete from employee
+   ...> where id=13;
+sqlite> select * from employee
+   ...> ;
+10|rajann|22122
+15|revati|12121
+sqlite> 
+
